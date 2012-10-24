@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title><?php echo $title;?></title>
@@ -29,13 +30,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="<?php echo base_url();?>">Project name</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="<?php echo base_url();?>home">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
+            <p class="navbar-text pull-right">
+            
+            <?php
+            	if($this->session->userdata('validated'))
+				{
+              		echo 'Logged in as <a class="navbar-link" href="'.base_url().'home">'.$name.'</a>';
+				}
+            ?>
+            </p>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -51,5 +61,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
 	<script type="text/javascript" src="<?php echo base_url();?>bootstrap/js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>bootstrap/js/global.js"></script>
 </body>
 </html>
